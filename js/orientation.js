@@ -34,10 +34,8 @@
 
     ww = window.innerWidth;
     wh = window.innerHeight;
-    document.getElementsByTagName('body')[0].style.height = wh + "px";
-    document.getElementsByTagName('body')[0].style.width = ww + "px";
-    document.getElementsByTagName('html')[0].style.height = wh + "px";
-    document.getElementsByTagName('html')[0].style.width = ww + "px";
+    document.getElementById('main').style.height = wh + "px";
+    document.getElementById('main').style.width = ww + "px";
 
     minWH = Math.min(ww, wh) - 20;
     for (i = 0; i < document.getElementsByTagName('svg').length; i += 1) {
@@ -109,7 +107,7 @@
 
         }, false);
     } else {
-        document.body.innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
+        document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
     }
 
 }());
