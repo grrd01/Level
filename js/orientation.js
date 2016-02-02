@@ -24,9 +24,6 @@
     var x;
     var x2;
     var transformAttr;
-    var ua = navigator.userAgent.toLowerCase();
-    var isAndroid = ua.indexOf("android") > -1; // Detect Android devices
-
 
     /*! modernizr 3.2.0 (Custom Build) | MIT *
      * http://modernizr.com/download/?-devicemotion_deviceorientation-setclasses !*/
@@ -37,6 +34,11 @@
 
     ww = window.innerWidth;
     wh = window.innerHeight;
+    document.getElementsByTagName('body')[0].style.height = wh + "px";
+    document.getElementsByTagName('body')[0].style.width = ww + "px";
+    document.getElementsByTagName('html')[0].style.height = wh + "px";
+    document.getElementsByTagName('html')[0].style.width = ww + "px";
+
     minWH = Math.min(ww, wh) - 20;
     for (i = 0; i < document.getElementsByTagName('svg').length; i += 1) {
         document.getElementsByTagName('svg')[i].setAttribute("height", (minWH / 3.85) + "px");
@@ -52,25 +54,14 @@
             // beta is the front-to-back tilt in degrees, where front is positive
             tiltFB = eventData.beta;
 
-            if (isAndroid) {
-                //window.orientation is different for iOS and Android
-                if (window.orientation === 0 || window.orientation === 180) { //Landscape Mode
-                    document.body.style.transform = "rotate(0deg)";
-                } else if (window.orientation === 90) {
-                    document.body.style.transform = "rotate(-90deg)";
-                } else if (window.orientation === -90) {
-                    document.body.style.transform = "rotate(90deg)";
-                }
-            } else {
-                if (window.orientation === 90) { //Landscape Mode
-                    document.body.style.transform = "rotate(-90deg)";
-                } else if (window.orientation === -90) {
-                    document.body.style.transform = "rotate(90deg)";
-                } else if (window.orientation === 0) {
-                    document.body.style.transform = "rotate(0deg)";
-                } else if (window.orientation === 180) {
-                    document.body.style.transform = "rotate(180deg)";
-                }
+            if (window.orientation === 90) {
+                document.body.style.transform = "rotate(-90deg)";
+            } else if (window.orientation === -90) {
+                document.body.style.transform = "rotate(90deg)";
+            } else if (window.orientation === 0) {
+                document.body.style.transform = "rotate(0deg)";
+            } else if (window.orientation === 180) {
+                document.body.style.transform = "rotate(180deg)";
             }
 
             if (tiltLR < 0) {
