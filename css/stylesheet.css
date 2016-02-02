@@ -1,0 +1,27 @@
+/*!
+* Level
+* Copyright (c) 2016 Michele Reho, Tobias Haussener, Gérard Tyedmers
+* Licensed under the MPL License
+*/
+
+/*html {animation:spin 4s linear infinite;}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }*/
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: url("../img/background.png");
+    background-size: 100% 100%;
+    color: white;
+}
+
+svg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#svg2 {
+    transform: rotate(90deg);
+}
+
