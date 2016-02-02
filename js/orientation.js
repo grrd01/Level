@@ -112,6 +112,9 @@
             transformAttr = ' translate(' + ((192.5 - x2) - document.getElementById("bubble").cx.animVal.value) + ',' + 0 + ')';
             document.getElementById("bubble2").setAttribute("transform", transformAttr);
 
+            document.getElementById("bubble").setAttribute("cy", ((192.5 - x2) * 0.0714 + 36.29));
+            document.getElementById("bubble2").setAttribute("cy", ((192.5 - x) * 0.0714 + 36.29));
+
 
         }, false);
     } else {
