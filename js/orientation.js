@@ -12,6 +12,7 @@
     var ww;
     var wh;
     var minWH;
+    var maxWH;
     var i;
     var tiltLR;
     var tiltFB;
@@ -34,13 +35,14 @@
 
     ww = window.innerWidth;
     wh = window.innerHeight;
-    document.getElementById('main').style.height = wh + "px";
-    document.getElementById('main').style.width = ww + "px";
+    minWH = Math.min(ww, wh);
+    maxWH = Math.max(ww ,wh);
+    document.getElementById('main').style.height = maxWH + "px";
+    document.getElementById('main').style.width = minWH + "px";
 
-    minWH = Math.min(ww, wh) - 20;
     for (i = 0; i < document.getElementsByTagName('svg').length; i += 1) {
-        document.getElementsByTagName('svg')[i].setAttribute("height", (minWH / 3.85) + "px");
-        document.getElementsByTagName('svg')[i].setAttribute("width", minWH + "px");
+        document.getElementsByTagName('svg')[i].setAttribute("height", ((minWH - 20) / 3.85) + "px");
+        document.getElementsByTagName('svg')[i].setAttribute("width", (minWH - 20) + "px");
     }
     document.getElementById('svg2').style.top = (minWH / 2 + minWH / 3.85) + "px";
 
