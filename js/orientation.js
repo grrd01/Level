@@ -37,6 +37,7 @@
     wh = window.innerHeight;
     minWH = Math.min(ww, wh);
     maxWH = Math.max(ww ,wh);
+
     document.getElementById('main').style.height = maxWH + "px";
     document.getElementById('main').style.width = minWH + "px";
 
@@ -54,14 +55,27 @@
             // beta is the front-to-back tilt in degrees, where front is positive
             tiltFB = eventData.beta;
 
+            ww = window.innerWidth;
+            wh = window.innerHeight;
+            minWH = Math.min(ww, wh);
+            maxWH = Math.max(ww ,wh);
+
             if (window.orientation === 90) {
-                document.body.style.transform = "rotate(-90deg)";
+                document.getElementById('main').style.top = ((maxWH - minWH) / -2) + "px";
+                document.getElementById('main').style.left = ((maxWH - minWH) / 2) + "px";
+                document.getElementById('main').style.transform = "rotate(-90deg)";
             } else if (window.orientation === -90) {
-                document.body.style.transform = "rotate(90deg)";
+                document.getElementById('main').style.top = ((maxWH - minWH) / -2) + "px";
+                document.getElementById('main').style.left = ((maxWH - minWH) / 2) + "px";
+                document.getElementById('main').style.transform = "rotate(90deg)";
             } else if (window.orientation === 0) {
-                document.body.style.transform = "rotate(0deg)";
+                document.getElementById('main').style.top = "0";
+                document.getElementById('main').style.left ="0";
+                document.getElementById('main').style.transform = "rotate(0deg)";
             } else if (window.orientation === 180) {
-                document.body.style.transform = "rotate(180deg)";
+                document.getElementById('main').style.top =  "0";
+                document.getElementById('main').style.left =  "0";
+                document.getElementById('main').style.transform = "rotate(180deg)";
             }
 
             if (tiltLR < 0) {
