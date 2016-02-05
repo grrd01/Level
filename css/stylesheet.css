@@ -7,7 +7,7 @@
 /*html {animation:spin 4s linear infinite;}
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }*/
 
-html, body {
+html, body, div {
     margin: 0;
     color: white;
 }
@@ -16,6 +16,7 @@ html, body {
     margin: 0;
     background-image: url("../img/background.png");
     background-size: 100% 100%;
+    position: absolute;
 }
 
 svg {
