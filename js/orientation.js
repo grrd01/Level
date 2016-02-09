@@ -38,8 +38,8 @@
     minWH = Math.min(ww, wh);
     maxWH = Math.max(ww ,wh);
 
-    document.getElementById('main').style.height = (maxWH + 20) + "px";
-    document.getElementById('main').style.width = minWH + "px";
+    //document.getElementById('main').style.height = (maxWH + 50) + "px";
+    //document.getElementById('main').style.width = (minWH + 50) + "px";
 
     for (i = 0; i < document.getElementsByTagName('svg').length; i += 1) {
         document.getElementsByTagName('svg')[i].setAttribute("height", ((minWH - 20) / 3.85) + "px");
@@ -59,6 +59,9 @@
             wh = window.innerHeight;
             minWH = Math.min(ww, wh);
             maxWH = Math.max(ww ,wh);
+
+            document.getElementById('main').style.height = maxWH + "px";
+            document.getElementById('main').style.width = minWH + "px";
 
             if (window.orientation === 90) {
                 document.getElementById('main').style.top = ((maxWH - minWH) / -2) + "px";
