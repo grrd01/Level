@@ -59,6 +59,7 @@
 
             document.getElementById('main').style.height = maxWH + "px";
             document.getElementById('main').style.width = minWH + "px";
+            document.body.style.zoom=1.0;
 
             if (window.orientation === 90) {
                 document.getElementById('main').style.top = ((maxWH - minWH) / -2) + "px";
