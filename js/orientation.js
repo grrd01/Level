@@ -60,7 +60,7 @@
 
 
             document.getElementById('tiltLR').innerHTML = Math.round(tiltLR) + " tiltLR";
-            document.getElementById('tiltFB').innerHTML = Math.round(tiltFB) + " tiltLR";
+            document.getElementById('tiltFB').innerHTML = Math.round(tiltFB) + " tiltFB";
             document.getElementById('dir').innerHTML = Math.round(dir) + " dir";
 
             ww = window.innerWidth;
