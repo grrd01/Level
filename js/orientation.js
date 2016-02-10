@@ -56,7 +56,7 @@
             tiltFB = eventData.beta;
 
             if (Math.abs(tiltFB) > 89 && Math.abs(tiltFB) < 91) {
-                tiltLR = tiltLR * Math.abs(90 - Math.abs(tiltFB))
+                tiltLR = tiltLR * Math.abs(90 - Math.abs(tiltFB)) * Math.abs(90 - Math.abs(tiltFB));
             }
             ww = window.innerWidth;
             wh = window.innerHeight;
