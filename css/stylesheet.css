@@ -25,7 +25,6 @@ svg {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: calc(100% - 20px);
 }
 
 #svg2 {
