@@ -55,8 +55,8 @@
             // beta is the front-to-back tilt in degrees, where front is positive
             tiltFB = eventData.beta;
 
-            if (Math.abs(tiltFB) > 85 && Math.abs(tiltFB) < 95) {
-                tiltLR = tiltLR * (Math.abs(90 - Math.abs(tiltFB)) / 5) * (Math.abs(90 - Math.abs(tiltFB)) / 5);
+            if (Math.abs(tiltFB) > 80 && Math.abs(tiltFB) < 100) {
+                tiltLR = tiltLR * (Math.abs(90 - Math.abs(tiltFB)) / 10) * (Math.abs(90 - Math.abs(tiltFB)) / 10) * (Math.abs(90 - Math.abs(tiltFB)) / 10);
             }
             ww = window.innerWidth;
             wh = window.innerHeight;
