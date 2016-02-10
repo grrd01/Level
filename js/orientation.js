@@ -16,7 +16,6 @@
     var i;
     var tiltLR;
     var tiltFB;
-    var dir;
     var y;
     var y2;
     var b;
@@ -51,18 +50,14 @@
     if (Modernizr.deviceorientation) {
         // Listen for the deviceorientation event and handle the raw data
         window.addEventListener('deviceorientation', function (eventData) {
-            // alpha is the compass direction the device is facing in degrees
-            dir = eventData.alpha;
-            // beta is the front-to-back tilt in degrees, where front is positive
-            tiltFB = eventData.beta;
             // gamma is the left-to-right tilt in degrees, where right is positive
             tiltLR = eventData.gamma;
+            // beta is the front-to-back tilt in degrees, where front is positive
+            tiltFB = eventData.beta;
 
-
-            document.getElementById('tiltLR').innerHTML = Math.round(tiltLR) + " tiltLR";
-            document.getElementById('tiltFB').innerHTML = Math.round(tiltFB) + " tiltFB";
-            document.getElementById('dir').innerHTML = Math.round(dir) + " dir";
-
+            if (Math.abs(tiltFB) > 89 && Math.abs(tiltFB) < 91) {
+                tiltLR = tiltLR * Math.abs(90 - Math.abs(tiltFB))
+            }
             ww = window.innerWidth;
             wh = window.innerHeight;
             minWH = Math.min(ww, wh);
