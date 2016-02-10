@@ -59,9 +59,9 @@
             tiltLR = eventData.gamma;
 
 
-            document.getElementById('tiltLR').innerHTML = tiltLR + " tiltLR";
-            document.getElementById('tiltFB').innerHTML = tiltFB + " tiltLR";
-            document.getElementById('dir').innerHTML = dir + " dir";
+            document.getElementById('tiltLR').innerHTML = Math.round(tiltLR) + " tiltLR";
+            document.getElementById('tiltFB').innerHTML = Math.round(tiltFB) + " tiltLR";
+            document.getElementById('dir').innerHTML = Math.round(dir) + " dir";
 
             ww = window.innerWidth;
             wh = window.innerHeight;
