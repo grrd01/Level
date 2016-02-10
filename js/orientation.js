@@ -55,6 +55,9 @@
             // beta is the front-to-back tilt in degrees, where front is positive
             tiltFB = eventData.beta;
 
+            document.getElementById('tiltLR').innerHTML = tiltLR;
+            document.getElementById('tiltFB').innerHTML = tiltFB;
+
             ww = window.innerWidth;
             wh = window.innerHeight;
             minWH = Math.min(ww, wh);
