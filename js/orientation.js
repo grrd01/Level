@@ -123,24 +123,23 @@
     window.addEventListener("orientationchange", resize);
     resize();
 
-    if (Modernizr.deviceorientation) {
-        // Listen for the deviceorientation event and handle the raw data
-
-        if (typeof DeviceMotionEvent.requestPermission === "function") {
-            // iOS 13+
-            DeviceMotionEvent.requestPermission()
-                .then(response => {
+    if (typeof DeviceMotionEvent.requestPermission === "function") {
+        // iOS 13+
+        DeviceMotionEvent.requestPermission()
+            .then(response => {
                 if (response == "granted") {
-                window.addEventListener("deviceorientation", orientationChange, false);
-            }
-        })
-        .catch(console.error)
-        } else {
-            // non iOS 13+
-            window.addEventListener("deviceorientation", orientationChange, false);
-        }
+                    window.addEventListener("deviceorientation", orientationChange, false);
+                }
+            })
+            .catch(console.error)
     } else {
-        document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
+        // non iOS 13+
+        if (Modernizr.deviceorientation) {
+            // Listen for the deviceorientation event and handle the raw data
+            window.addEventListener("deviceorientation", orientationChange, false);
+        } else {
+            document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
+        }
     }
 
     // ServiceWorker initialisieren
