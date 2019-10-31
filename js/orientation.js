@@ -123,9 +123,9 @@
     window.addEventListener("orientationchange", resize);
     resize();
 
-    if (typeof DeviceMotionEvent.requestPermission === "function") {
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
         // iOS 13+
-        DeviceMotionEvent.requestPermission()
+        DeviceOrientationEvent.requestPermission()
             .then(response => {
                 if (response == "granted") {
                     window.addEventListener("deviceorientation", orientationChange, false);
