@@ -134,6 +134,7 @@
             })
             .catch(console.error)
     } else {
+        alert("notios13");
         // non iOS 13+
         if (Modernizr.deviceorientation) {
             // Listen for the deviceorientation event and handle the raw data
