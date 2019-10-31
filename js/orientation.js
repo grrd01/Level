@@ -124,7 +124,6 @@
     resize();
 
     if (typeof DeviceOrientationEvent.requestPermission === "function") {
-        alert("ios13");
         // iOS 13+
         DeviceOrientationEvent.requestPermission()
             .then(response => {
@@ -134,7 +133,6 @@
             })
             .catch(console.error)
     } else {
-        alert("notios13");
         // non iOS 13+
         if (Modernizr.deviceorientation) {
             // Listen for the deviceorientation event and handle the raw data
@@ -144,7 +142,7 @@
         }
     }
 
-    /* ServiceWorker initialisieren
+    // ServiceWorker initialisieren
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
             navigator.serviceWorker.register("sw.js").then(function (registration) {
@@ -154,6 +152,5 @@
             });
         });
     }
-     */
 
 }());
