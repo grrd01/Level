@@ -1,0 +1,50 @@
+{
+  "name": "Level",
+  "short_name": "Level",
+  "version": "1.0",
+  "description": "Level is a HTML5 spirit level app for all devices that support device orientation.",
+  "default_locale": "en",
+  "icons": [
+    {
+      "src": "../img/apple-touch-icon-57x57.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "../img/apple-touch-icon-76x76.png",
+      "type": "image/png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "../img/apple-touch-icon-120x120.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "../img/apple-touch-icon-152x152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "../img/apple-touch-icon-180x180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "../img/apple-touch-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../img/apple-touch-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "categories": ["tools", "utilities", "water level", "spirit level", "level"],
+  "background_color": "#434343",
+  "theme_color": "#434343",
+  "display": "standalone",
+  "start_url": "../index.html",
+  "author": "Michele Reho, Tobias Haussener, Gérard Tyedmers"
+}
