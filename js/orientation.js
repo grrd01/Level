@@ -123,37 +123,42 @@
     window.addEventListener("orientationchange", resize);
     resize();
 
-    alert("vor if");
-    if (typeof DeviceOrientationEvent.requestPermission === "function") {
-        // iOS 13+
-        alert("in ios-if");
-        DeviceOrientationEvent.requestPermission()
-            .then(response => {
-                if (response == "granted") {
-                    window.addEventListener("deviceorientation", orientationChange, false);
-                }
-            })
-            .catch(console.error)
-    } else {
-        // non iOS 13+
-        alert("in non-ios-else");
-        if (Modernizr.deviceorientation) {
-            // Listen for the deviceorientation event and handle the raw data
-            window.addEventListener("deviceorientation", orientationChange, false);
+    function OrientationHandler () {
+        alert("vor if");
+        if (typeof DeviceOrientationEvent.requestPermission === "function") {
+            // iOS 13+
+            alert("in ios-if");
+            DeviceOrientationEvent.requestPermission()
+                .then(response => {
+                    if (response == "granted") {
+                        window.addEventListener("deviceorientation", orientationChange, false);
+                    }
+                })
+                .catch(console.error)
         } else {
-            document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
+            // non iOS 13+
+            alert("in non-ios-else");
+            if (Modernizr.deviceorientation) {
+                // Listen for the deviceorientation event and handle the raw data
+                window.addEventListener("deviceorientation", orientationChange, false);
+            } else {
+                document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
+            }
         }
     }
+    const btn = document.getElementById( "svg1" );
+    btn.addEventListener( "click", OrientationHandler );
+
 
     // ServiceWorker initialisieren
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-            navigator.serviceWorker.register("sw.js").then(function (registration) {
-                console.log("ServiceWorker registration successful with scope: ", registration.scope);
-            }, function (err) {
-                console.log("ServiceWorker registration failed: ", err);
-            });
-        });
-    }
+    // if ("serviceWorker" in navigator) {
+    //     window.addEventListener("load", function () {
+    //         navigator.serviceWorker.register("sw.js").then(function (registration) {
+    //             console.log("ServiceWorker registration successful with scope: ", registration.scope);
+    //         }, function (err) {
+    //             console.log("ServiceWorker registration failed: ", err);
+    //         });
+    //     });
+    // }
 
 }());
