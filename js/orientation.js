@@ -123,8 +123,10 @@
     window.addEventListener("orientationchange", resize);
     resize();
 
+    alert("vor if");
     if (typeof DeviceOrientationEvent.requestPermission === "function") {
         // iOS 13+
+        alert("in ios-if");
         DeviceOrientationEvent.requestPermission()
             .then(response => {
                 if (response == "granted") {
@@ -134,6 +136,7 @@
             .catch(console.error)
     } else {
         // non iOS 13+
+        alert("in non-ios-else");
         if (Modernizr.deviceorientation) {
             // Listen for the deviceorientation event and handle the raw data
             window.addEventListener("deviceorientation", orientationChange, false);
