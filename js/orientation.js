@@ -123,34 +123,34 @@
     window.addEventListener("orientationchange", resize);
     resize();
 
-    function OrientationHandler () {
-        alert("vor if");
-        if (typeof DeviceOrientationEvent.requestPermission === "function") {
-            // iOS 13+
-            alert("in ios-if");
-            DeviceOrientationEvent.requestPermission()
-                .then(response => {
-                    if (response == "granted") {
-                        window.addEventListener("deviceorientation", orientationChange, false);
-                    }
-                })
-                .catch(console.error)
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
+        // iOS 13+
+        document.getElementById("iStart").classList.remove("hide");
+    } else {
+        // non iOS 13+
+        if (Modernizr.deviceorientation) {
+            // Listen for the deviceorientation event and handle the raw data
+            window.addEventListener("deviceorientation", orientationChange, false);
         } else {
-            // non iOS 13+
-            alert("in non-ios-else");
-            if (Modernizr.deviceorientation) {
-                // Listen for the deviceorientation event and handle the raw data
-                window.addEventListener("deviceorientation", orientationChange, false);
-            } else {
-                document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
-            }
+            document.getElementById("main").innerHTML = "THIS DEVICE DOES NOT SUPPORT DEVICE ORIENTATION";
         }
     }
-    const btn = document.getElementById( "svg1" );
+
+    function OrientationHandler () {
+        // iOS 13+
+        DeviceOrientationEvent.requestPermission()
+            .then(response => {
+                if (response === "granted") {
+                    window.addEventListener("deviceorientation", orientationChange, false);
+                }
+            })
+            .catch(console.error)
+    }
+    const btn = document.getElementById( "iStart" );
     btn.addEventListener( "click", OrientationHandler );
 
 
-    // ServiceWorker initialisieren
+    // todo: ServiceWorker initialisieren
     // if ("serviceWorker" in navigator) {
     //     window.addEventListener("load", function () {
     //         navigator.serviceWorker.register("sw.js").then(function (registration) {
