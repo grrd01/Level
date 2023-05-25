@@ -141,6 +141,7 @@
         DeviceOrientationEvent.requestPermission()
             .then(response => {
                 if (response === "granted") {
+                    document.getElementById("iStart").classList.add("hide");
                     window.addEventListener("deviceorientation", orientationChange, false);
                 }
             })
@@ -150,15 +151,15 @@
     btn.addEventListener( "click", OrientationHandler );
 
 
-    // todo: ServiceWorker initialisieren
-    // if ("serviceWorker" in navigator) {
-    //     window.addEventListener("load", function () {
-    //         navigator.serviceWorker.register("sw.js").then(function (registration) {
-    //             console.log("ServiceWorker registration successful with scope: ", registration.scope);
-    //         }, function (err) {
-    //             console.log("ServiceWorker registration failed: ", err);
-    //         });
-    //     });
-    // }
+    // ServiceWorker initialisieren
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").then(function (registration) {
+                console.log("ServiceWorker registration successful with scope: ", registration.scope);
+            }, function (err) {
+                console.log("ServiceWorker registration failed: ", err);
+            });
+        });
+    }
 
 }());
